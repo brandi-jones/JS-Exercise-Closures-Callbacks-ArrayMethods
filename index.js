@@ -169,9 +169,17 @@ function processContains(item, list, callback) {
  * [2] Invoking `processDuplicateFree` passing `[1,1,2,2,3]` and `(arr) => arr.length`,
  * should return 3.
 */
-function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */) {
-  /* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */
-}
+function processDuplicateFree(list, callback) {
+  let deDupedList = list.filter((currentValue, index, self) => {
+    return index === self.indexOf(currentValue);
+  })
+
+  return callback(deDupedList);
+} // <---- indexOf method returns first index at which a given element can be found in the array, 
+  // or -1 if it is not present. 
+  //    Therefore, the condition for the filter method would be if the index of the element(currentValue)
+  //    that we are currently iterating on, must be equal to the first index that the particular element
+  //    was found in the array in order for it to be unique.
 
 /////////////// HIGHER-ORDER ARRAY METHODS ///////////////
 /////////////// HIGHER-ORDER ARRAY METHODS ///////////////
